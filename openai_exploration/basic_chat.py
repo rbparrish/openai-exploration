@@ -8,7 +8,7 @@ client = OpenAI()
 #    display(json.loads(obj.model_dump_json()))
 
 # user_content_example = "Compose a poem that explains my love for Maria, my wife, whom is a fan of art and life."
-def complete_poem(user_content):
+def create_poem(user_content):
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
