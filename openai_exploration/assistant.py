@@ -1,34 +1,54 @@
-import openai
+from openai import OpenAI
 import time
-openai.api_key = "YOUR_API_KEY"
+#openai.api_key = "YOUR_API_KEY"
 
-assistant_id = "YOUR_ASSISTANT_ID"
+client = OpenAI()
+
+#assistant_id = "YOUR_ASSISTANT_ID"
+
+#list_assistants doesn't work yet. Getting error with openai.beta.assistant call (no function available)
+def list_assistants():
+    try:
+        # Fetch the list of assistants
+        response = client.beta.assistant.list()
+
+        if response.data:
+            print("List of Assistants:")
+            for assistants in response.data:
+                print(f"- ID: {assistants.id}, Name: {assistants.name}")
+        else:
+            print("No assistants found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
 
 def create_thread(assistant_id, prompt):
     # Create a thread
-    thread = openai.beta.threads.create()
+    thread = client.beta.threads.create()
     my_thread_id = thread.id
 
     # Create a message
-    message = openai.beta.threads.messages.create(
+    message = client.beta.threads.messages.create(
         thread_id=my_thread_id,
         role="user",
         content=prompt
     )
 
     # Run
-    run = openai.beta.threads.runs.create(
+    run = client.beta.threads.runs.create(
         thread_id=my_thread_id,
         assistant_id=assistant_id,
     )
     return run.id, thread.id
 
 def check_status(run_id, thread_id):
-    run = openai.beta.threads.runs.retrieve(
+    run = client.beta.threads.runs.retrieve(
         thread_id=thread_id,
         run_id=run_id,
     )
     return run.status
+
+def get_response(thread_id):
+    return client.beta.threads.messages.list(thread_id)
 
 """
 ## Example code to use with above functions
