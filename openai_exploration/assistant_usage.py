@@ -2,24 +2,6 @@ from openai import OpenAI
 
 client = OpenAI()
 
-"""
-##list_assistants doesn't work yet. Getting error with openai.beta.assistant call (no function available)
-
-def list_assistants():
-    try:
-        # Fetch the list of assistants
-        response = client.beta.assistant.list()
-
-        if response.data:
-            print("List of Assistants:")
-            for assistants in response.data:
-                print(f"- ID: {assistants.id}, Name: {assistants.name}")
-        else:
-            print("No assistants found.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-"""
-
 
 def create_thread(assistant_id, prompt):
     # Create a thread
