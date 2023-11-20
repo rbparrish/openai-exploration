@@ -1,9 +1,9 @@
 # Openai Exploration
-Personal exploration &amp;  using OpenAI
+Personal exploration of &amp; helpful tools for using OpenAI
 
 The following use cases are implemented:
-- Single request and response from ChatGPT (see basic_chat.py)
-- Usage of an already created assistant (see assistant.py)
+- Single request and response from ChatGPT (see [basic_chat.py](openai_exploration/basic_chat.py))
+- Usage of an already created assistant (see [assistant.py](openai_exploration/assistant.py))
 
 Use cases I'm planning to explore next:
 - Using a custom GPT from python
