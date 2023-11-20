@@ -38,7 +38,7 @@ def get_response(thread_id):
 """
 ### Example code to use with above functions
 
-from openai_exploration.assistant import create_thread, check_status, list_assistants, get_response
+from openai_exploration.assistant_usage import create_thread, check_status, list_assistants, get_response
 import json
 
 ## Submit query and create thread

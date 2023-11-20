@@ -16,3 +16,12 @@ def list_assistants():
             print("No assistants found.")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+"""
+### Example code to use with above functions
+
+from openai_exploration.assistant_usage import create_thread, check_status, list_assistants, get_response
+
+list_assistants()
+
+"""
