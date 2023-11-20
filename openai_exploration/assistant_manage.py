@@ -3,10 +3,14 @@ from openai import OpenAI
 client = OpenAI()
 
 
+def get_assistants():
+    return client.beta.assistants.list()
+
+
 def list_assistants():
     try:
         # Fetch the list of assistants
-        response = client.beta.assistants.list()
+        response = get_assistants()
 
         if response.data:
             print("List of Assistants:")
