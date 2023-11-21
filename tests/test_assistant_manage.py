@@ -1,4 +1,3 @@
-import openai
 from openai_exploration.assistant_manage import get_assistants
 
 
