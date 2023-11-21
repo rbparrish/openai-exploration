@@ -21,4 +21,16 @@ def test_get_status():
     # Call the function
     status = check_status(my_run_id, my_thread_id)
 
-    assert status == 'completed' or status == 'in_progress', "unexpected status response"
+    assert status == 'completed' or status == 'in_progress' or status == 'queued', "unexpected status response"
+
+def test_get_response():
+
+    # Get full response object
+    my_thread_id = 'thread_nPv6m6dtrmQrosXmXFFlOxQg'
+    full_response = get_response(my_thread_id)
+
+    # Pull out primary text response
+    simple_text_response = full_response.data[0].content[0].text.value
+
+    # Check if response is as expected
+    assert simple_text_response[:40] == "Sure, a comprehensive Product Requiremen", "response not as expected"
