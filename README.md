@@ -25,5 +25,3 @@ Example Usage in Python Console for Code found in the bottom of each file
 Example Usage CLI for test suite
 - `pytest` will run through full set of tests
 - `pytest -k test_get_response will run through a single file of tests
-- 
-- 
